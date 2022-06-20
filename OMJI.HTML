@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock with HTML CSS and JS</title>
+    <script>
+	setInterval(() => {
+    d = new Date();
+    hTime = d.getHours();
+    mTime = d.getMinutes();
+    sTime = d.getSeconds();
+    hRotation = 30 * hTime + mTime / 2;
+    mRotation = 6 * mTime;
+    sRotation = 6 * sTime;
+    hour.style.transform = `rotate(${hRotation}deg)`;
+    min.style.transform = `rotate(${mRotation}deg)`;
+    sec.style.transform = `rotate(${sRotation}deg)`;
+    
+
+}, 1000);
+	</script>
+<style>
+#clockcontainer{
+    width: 40vw;
+    height: 100vw;
+    position: relative;
+    margin: auto;
+
+    /* background: url(clock.png) no-repeat; */
+    background-size: 100%;
+
+}
+#hour , #min,#sec{
+position: absolute;
+background-color: black;
+border-radius:10px;
+transform-origin: bottom;
+}
+#hour{
+    width: 3%;
+    height: 10%;
+    top: 10.2%;
+    left: 48.43%;
+    background: black;
+    
+    /* display: none; */
+}
+#min{
+    width: 2.5%;
+    height: 13%;
+    top: 7.2%;
+    left: 48.6%;
+    background: black;
+	
+    /* display: none; */
+}
+#sec{
+       width: 1%;
+    height: 16%;
+    top: 4%;
+    left: 49.3%;
+    background: red;
+    /* display: none; */
+    /* display: none; */
+}
+#omcolor{
+    color: red;
+}
+</style>
+</head>
+<body>
+    <h1 id ="omcolor">Clock coded by Om Prakash</h1>
+    <div id="clockcontainer">
+        <div id="hour">
+
+        </div>
+        <div id="min">
+
+        </div>
+        <div id="sec">
+
+        </div>
+    </div>
+</body>
+</html>

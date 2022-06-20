@@ -1,0 +1,16 @@
+{
+    "files.associations": {
+        "array": "c",
+        "string": "c",
+        "string_view": "c",
+        "dos.h": "c",
+        "list": "cpp",
+        "iostream": "cpp",
+        "thread": "cpp",
+        "chrono": "cpp",
+        "stdio.h": "c",
+        "stdlib.h": "c",
+        "ostream": "cpp"
+    },
+    "liveServer.settings.port": 5501
+}

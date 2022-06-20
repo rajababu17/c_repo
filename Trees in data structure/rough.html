@@ -1,0 +1,265 @@
+<?php
+require_once 'controller/dbconfig.php';
+
+$notice=DB::query("SELECT id, startdate, heading, details, ntype FROM notice WHERE news =%i ORDER BY id DESC LIMIT 10", 1);
+$noticeScroll=DB::query("SELECT id, startdate, heading, details, ntype FROM notice WHERE news =%i AND scrollstatus=1 ORDER BY id DESC LIMIT 10", 1);
+$events=DB::query("SELECT id, startdate, heading, details, ntype FROM notice WHERE events =%i ORDER BY id DESC LIMIT 10", 1);
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keyword" content="Magadh University, Bodh Gaya (Bihar)">
+    <meta name="description" content="Magadh University, Bodh Gaya (Bihar)">
+    <meta name="author" content="">
+    <meta name="google-site-verification" content="Eh9HUWcf4aD5wEYbfotKKiKho-g-18CIAQfSpec0GSY" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/apple-favicon.png">
+    <link rel="shortcut icon" type="image/png" href="<?=$siteurl;?>/images/favicon.png">
+
+    <title>:::  Magadh University, Bodh Gaya (Bihar)  :::</title>
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="<?=$siteurl;?>/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="<?=$siteurl;?>/css/style.css">
+
+    <!-- Responsive stylesheet  -->
+    <link rel="stylesheet" type="text/css" href="<?=$siteurl;?>/css/responsive.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <style type="text/css">
+    	p img {
+    border: 0px #e0e0e0 solid !important;
+	}
+	marquee ul li p{
+	font-size: 10px !important;
+    	color: #333333;
+    	}
+		.btn {
+			white-space: wrap !important;
+		}
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="status"></div>
+    </div>
+
+    <?php include_once('pp-header.php'); //header area ?>
+
+	<?php include_once('pp-slider.php'); //slider section ?>
+	
+        
+		<div class="bg-danger animatedParent animateOnce p-1 text-white" style="margin-top:-9px;">                	
+            <marquee width="100%" scrollamount="3" direction="left" class="top-marquee-scroll">
+			<?php foreach($noticeScroll as $row){ ?>
+            	<a href="<?=$siteurl;?>/details/<?=$row['id'];?>" target="_blank"><i class="fa fa-angle-double-right" aria-hidden="true"></i> <?=$row['heading'];?>... &nbsp; <?php if($row['ntype']==1){ ?><img src="<?=$siteurl;?>/images/new.gif" class="new-img" alt="New" /><?php } ?></a> &nbsp; | &nbsp;
+            <?php } ?>
+			</marquee>                
+		</div>
+    
+    <div>
+    <!--<img src="img/main-banner.jpg" width="100%" class="img-responsive" alt="" />-->
+    </div>
+
+    <!-- Features Start -->
+    <section class="features-area">
+		
+        <div class="container">
+            <div class="row animatedParent animateOnce">
+            
+            	<div class="col-lg-3 col-md-3 col-sm-12">
+				
+				<div class="col-lg-12 col-md-12 col-sm-12 animated fadeInUpShort slow delay-500">
+                    <div class="container">
+                    <div class="row">
+                    	<div class="col-md-12 alert alert-warning">
+                        	<img src="<?=$siteurl;?>/images/governor.jpg" class="img-thumbnail" alt="Governer" />
+                            <h6 align="center">Shri Fagu Chauhan</h6>
+                            <p align="center"><strong>H. E. Chancellor-cum-Governor of Bihar</strong></p>
+                        </div>
+                    </div>
+                    </div>
+                </div><!-- column -->
+            	
+				<div class="col-lg-12 col-md-12 col-sm-12 animated fadeInUpShort slow delay-500">
+                    <div class="container">
+                    <div class="row">
+                    	<div class="col-md-12 alert alert-info">
+                        	<img src="<?=$siteurl;?>/images/vc.jpg" class="img-thumbnail" alt="VC" />
+                            <h6 align="center">Prof. Rajendra Prasad</h6>
+                            <p align="center"><strong>Vice-Chancellor<br>Magadh University</strong></p>                    
+                        </div>                    	
+                    </div>
+                    </div>
+                </div><!-- column -->
+            	
+				<div class="col-lg-12 col-md-12 col-sm-12 animated fadeInUpShort slow delay-500">
+                    <div class="container">
+                    <div class="row">
+                    	<div class="col-md-12 alert alert-primary">
+                        	<img src="<?=$siteurl;?>/images/pro-vc.jpg" class="img-thumbnail" alt="VC" />
+                            <h6 align="center">Prof. V. N. Singh</h6>
+                            <p align="center"><strong>Pro Vice-Chancellor<br>Magadh University</strong></p>                    
+                        </div>                    	
+                    </div>
+                    </div>
+                </div><!-- column -->
+            
+            	<?php /* ?>
+                <div class="col-lg-12 col-md-12 col-sm-12 animated fadeInUpShort slow delay-500">
+                    <div class="container">
+                    <div class="row">
+                    	<div class="col-md-12 alert alert-success">
+                        	<img src="<?=$siteurl;?>/images/registrar.jpg" class="img-thumbnail" alt="VC" />
+                            <h6 align="center">Prof. Siddhanath Yadav</h6>
+                            <p align="center"><strong>Registrar<br>Magadh University</strong></p>                    
+                        </div>
+                    </div>
+                    </div>
+                </div><!-- column -->
+				<?php */ ?>
+                
+                <div class="clearfix">&nbsp;</div>  
+				</div><!-- sidebar-column -->
+				
+				
+            
+            <div class="col-lg-9 col-md-9 col-sm-12">
+			<div class="row animatedParent animateOnce">
+				
+				<div class="col-lg-12 mb-3">
+                    <div class="about-col animated fadeInLeftShort slow">
+                        <h3>About Magadh University</h3>
+                        <p class="para-space text-justify">
+                        <?=substr($aboutdata['details'],0,925);?>
+						<a href="<?=$siteurl;?>/about-the-university" class="btn btn-info btn-sm pull-right">>>more</a>
+						</p>
+                    </div>                
+					<div class="clearfix">&nbsp;</div>
+                </div><!-- column --> 
+			
+                <div class="col-lg-12 m-1 mb-3">
+				<div class="row">
+				<div class="col">
+				<div class="col-md-12 alert alert-warning" style="height:300px;">
+                    <h5><i class="fa fa-bullhorn"></i> New &amp; Notice <span><a href="<?=$siteurl;?>/notice-board" class="btn btn-warning btn-sm pull-right"><small><i class="fa fa-angle-double-right" aria-hidden="true"></i> view all</small></a></span></h5>
+                    <marquee width="100%" height="225" onMouseOver="this.stop()" onMouseOut="this.start()" scrollAmount="1" scrollDelay="2" direction="up" behavior="scroll">
+                    <ul>
+                    <?php foreach($notice as $row){ ?>
+                    	<li><a href="<?=$siteurl;?>/details/<?=$row['id'];?>" target="_blank"><i class="fa fa-angle-double-right" aria-hidden="true"></i> <?=substr($row['heading'],0,90);?>...</a> &nbsp; <?php if($row['ntype']==1){ ?><img src="<?=$siteurl;?>/images/new.gif" class="new-img" alt="New" /><?php } ?> <p> &nbsp; Updated On : <?=$row['startdate'];?></p>
+                    	<hr /></li>
+                    <?php } ?>
+                    </ul>
+                    </marquee>
+                </div><!--Closed Main Column-->
+				</div>
+                
+				<div class="col">
+				<div class="col-md-12 alert alert-danger" style="height:300px;">
+                    <h5><i class="fa fa-calendar"></i> Current Events <span><a href="<?=$siteurl;?>/events" class="btn btn-danger btn-sm pull-right"><small><i class="fa fa-angle-double-right" aria-hidden="true"></i> view all</small></a></span></h5>
+                    <marquee width="100%" height="225" onMouseOver="this.stop()" onMouseOut="this.start()" scrollAmount="1" scrollDelay="2" direction="up" behavior="alternate">
+                    <ul>
+                    	<?php foreach($events as $row){ ?>
+                    	<li><a href="<?=$siteurl;?>/details/<?=$row['id'];?>" target="_blank"><i class="fa fa-angle-double-right" aria-hidden="true"></i> <?=substr($row['heading'],0,90);?>...</a> &nbsp; <?php if($row['ntype']==1){ ?><img src="<?=$siteurl;?>/images/new.gif" class="new-img" alt="New" /><?php } ?> <p> &nbsp; Updated On : <?=$row['startdate'];?></p>
+                    	<hr /></li>
+                    	<?php } ?>
+                    </ul>
+                    </marquee>
+                </div><!--Closed Main Column-->
+				</div>
+				
+				</div>
+				</div><!-- column -->
+				
+				<?php /* ?>
+				<div class="col-md-12 p-1 animated pulse mb-2">
+					<a href="http://125.99.186.42/V3SEARCH.ASPX" target="_blank" class="btn btn-success btn-block text-left" style="white-space: wrap !important;">
+					<strong><i class="fa fa-angle-double-right" aria-hidden="true"></i> Result Examination [UG/PG/B.Ed] - 2019-20</strong> <img src="https://magadhuniversity.ac.in/images/new.gif" class="new-img" alt="New"></a>
+				</div><!-- Result Column -->
+				<?php */ ?>
+			
+			<div class="col-md-6 p-1 animated pulse">
+				<div class="card">
+					<h5 class="card-header bg-danger text-white"><i class="fa fa-list"></i> Admission</h5>
+					<div class="card-body">
+						<div style="height: 355px; overflow-x: visible; overflow-y: auto;">
+							<ul class="list-group">
+								<li class="list-group-item"><a href="http://magadhuniversity.in/Registration/PG_PreInfo.aspx" target="_blank"><i class="fa fa-hand-o-right"></i>   P.G. Application Form (M.A./M.Sc./M.Com.)</a>
+								</li>
+								<li class="list-group-item"><a href="http://magadhuniversity.in/Login.aspx" target="_blank"><i class="fa fa-hand-o-right"></i> Applicant Login</a>
+								</li>
+								<li class="list-group-item"><a href="http://magadhuniversity.in/Login.aspx" target="_blank"><i class="fa fa-hand-o-right"></i> P.G. Departments / College Login</a>
+								</li>
+								<li class="list-group-item"><a href="http://magadhuniversity.in/files/eligibility.pdf" target="_blank"><i class="fa fa-hand-o-right"></i> Admission Rules</a>
+								</li>
+								<li class="list-group-item"><a href="http://magadhuniversity.in/files/candidate_instructions.pdf" target="_blank"><i class="fa fa-hand-o-right"></i> Applicant Instructions</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- column -->
+			<div class="col-md-6 p-1 animated pulse">
+				<div class="card">
+					<h5 class="card-header bg-info text-white"><i class="fa fa-list"></i> Examination</h5>
+					<div class="card-body">
+						<div class="scrollbar-01 scrollbar-deep-purple bordered-deep-purple thin">
+						<?php //style="height: 355px; overflow-x: visible; overflow-y: auto;" ?>
+							<ul class="list-group">
+								<li class="list-group-item"><a href="registration_search.php" target="_blank"><i class="fa fa-hand-o-right"></i> U.G./P.G. Registration Form <img src="<?=$siteurl;?>/images/new.gif" class="new-img" alt="New" /></a>
+								</li>
+								<li class="list-group-item"><a href="registration_payment_search.php" target="_blank"><i class="fa fa-hand-o-right"></i> Registration Form Re-Payment <img src="<?=$siteurl;?>/images/new.gif" class="new-img" alt="New" /></a>
+								</li>
+								<li class="list-group-item"><a href="registration_payment_receipt_search.php" target="_blank"><i class="fa fa-hand-o-right"></i> Re-Print Payment Receipt</a>
+								</li>
+								<li class="list-group-item"><a href="#" target="_blank"><i class="fa fa-hand-o-right"></i> Examination Form</a>
+								</li>
+								<li class="list-group-item"><a href="http://exam.magadhuniversity.in/Open-Examination.php" target="_blank"><i class="fa fa-hand-o-right"></i> Pramoted/Failed/Left-out Exam. Form</a>
+								</li>
+								<li class="list-group-item"><a href="http://exam.magadhuniversity.in/Open-Examination.php" target="_blank"><i class="fa fa-hand-o-right"></i> Pramoted/Failed/Left-out Exam. Form</a>
+								</li>
+								<li class="list-group-item"><a href="http://exam.magadhuniversity.in/phd/" target="_blank"><i class="fa fa-hand-o-right"></i> Pre Ph.D. Registration Test (PAT) - 2021</a>
+								</li>
+								<?php /* ?>
+								<li class="list-group-item"><a href="http://exam.magadhuniversity.in/phd/" target="_blank"><i class="fa fa-hand-o-right"></i>  Download Ph.D. Admission Test (PAT) Result</a>
+								</li>
+								<li class="list-group-item disabled"><a name="#" target="_blank"><i class="fa fa-hand-o-right"></i> Download Admit Card</a>
+								</li>
+								<?php */ ?>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- column -->
+				
+				
+            </div><!-- main-row -->
+			</div><!-- main-column -->
+			
+            </div><!-- row -->
+		</div><!-- container -->
+    </section>
+    
+
+    <?php include_once('pp-footer.php'); //footer area ?>
+
+</body>
+</html>
