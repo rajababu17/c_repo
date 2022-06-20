@@ -4,30 +4,30 @@
 
 
 #include <stdio.h>
-// #include <string.h>
-// #include <math.h>
-// #include <stdlib.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
 
-// int main() {
-//     int i = 4;
-//     double d = 4.0;
-//     char s[] = "HackerRank ";
-//     int a;
-//     double b;
-//     char c[100];
+int main() {
+    int i = 4;
+    double d = 4.0;
+    char s[] = "HackerRank ";
+    int a;
+    double b;
+    char c[100];
     
-//     scanf("%d",&a);
-//     scanf("%lf",&b);
-//     fflush(stdin);
-//     scanf("%[^\n]%*c",c);
-//     // fgets(c, 100, stdin);
-//     // fgets(c, 100, stdin);
-//     printf("%d\n",i+a);
-//     printf("%.1lf\n",d+b);
-//     // c=strcat(c,s)
-//     printf("%s %s",s,c );
+    scanf("%d",&a);
+    scanf("%lf",&b);
+    fflush(stdin);
+    scanf("%[^\n]%*c",c);
+    // fgets(c, 100, stdin);
+    // fgets(c, 100, stdin);
+    printf("%d\n",i+a);
+    printf("%.1lf\n",d+b);
+    // c=strcat(c,s)
+    printf("%s %s",s,c );
 
-//     return 0;
+    return 0;
 // }
 #include <string.h>
 #include <math.h>
